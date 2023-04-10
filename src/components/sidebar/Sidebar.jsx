@@ -4,24 +4,46 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import StoreIcon from "@mui/icons-material/Store";
-import InsertChartIcon from "@mui/icons-material/InsertChart";
-import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined";
-import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import { Link } from "react-router-dom";
-import { DarkModeContext } from "../../context/darkModeContext";
-import { useContext } from "react";
+import Diversity2Icon from '@mui/icons-material/Diversity2';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
+import BookmarksIcon from '@mui/icons-material/Bookmarks';
+import InterpreterModeIcon from '@mui/icons-material/InterpreterMode';
+
+
+
+import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
+
+
+
+
+//import { DarkModeContext } from "../../context/darkModeContext";
+//import { useContext } from "react";
+
+
 
 const Sidebar = () => {
-    const { dispatch } = useContext(DarkModeContext);
+    //const { dispatch } = useContext(DarkModeContext);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        signOut(auth).then(() => {
+            // Sign-out successful.
+            navigate("/");
+            console.log("Signed out successfully")
+        }).catch((error) => {
+            // An error happened.
+        });
+    }
+
     return (
         <div className="sidebar">
             <div className="top">
-                <Link to="/" style={{ textDecoration: "none" }}>
-                    <span className="logo">lamadmin</span>
+                <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                    <span className="logo">SportMSLD</span>
                 </Link>
             </div>
             <hr />
@@ -29,8 +51,11 @@ const Sidebar = () => {
                 <ul>
                     <p className="title">MAIN</p>
                     <li>
-                        <DashboardIcon className="icon" />
-                        <span>Dashboard</span>
+                        <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                            <DashboardIcon className="icon" />
+                            <span>Dashboard</span>
+                        </Link>
+
                     </li>
                     <p className="title">LISTS</p>
                     <Link to="/users" style={{ textDecoration: "none" }}>
@@ -45,56 +70,54 @@ const Sidebar = () => {
                             <span>Products</span>
                         </li>
                     </Link>
-                    <li>
-                        <CreditCardIcon className="icon" />
-                        <span>Orders</span>
-                    </li>
-                    <li>
-                        <LocalShippingIcon className="icon" />
-                        <span>Delivery</span>
-                    </li>
-                    <p className="title">USEFUL</p>
-                    <li>
-                        <InsertChartIcon className="icon" />
-                        <span>Stats</span>
-                    </li>
-                    <li>
-                        <NotificationsNoneIcon className="icon" />
-                        <span>Notifications</span>
-                    </li>
+
+                    <Link to="/orders" style={{ textDecoration: "none" }}>
+                        <li>
+                            <CreditCardIcon className="icon" />
+                            <span>Orders</span>
+                        </li>
+                    </Link>
+
+                    <Link to={"/deliveries"} style={{ textDecoration: "none" }}>
+                        <li>
+                            <LocalShippingIcon className="icon" />
+                            <span>Delivery</span>
+                        </li>
+                    </Link>
+
+                    <Link to={"/news"} style={{ textDecoration: "none" }}>
+                        <li>
+                            <NewspaperIcon className="icon" />
+                            <span>Newspaper</span>
+                        </li>
+                    </Link>
+
+                    <Link to={"/category"} style={{ textDecoration: "none" }}>
+                        <li>
+                            <BookmarksIcon className="icon" />
+                            <span>Category</span>
+                        </li>
+                    </Link>
+
+                    <Link to="/aboutUs" style={{ textDecoration: "none" }}>
+                        <li>
+                            <Diversity2Icon className="icon" />
+                            <span>About Us</span>
+                        </li>
+                    </Link>
+
                     <p className="title">SERVICE</p>
-                    <li>
-                        <SettingsSystemDaydreamOutlinedIcon className="icon" />
-                        <span>System Health</span>
-                    </li>
-                    <li>
-                        <PsychologyOutlinedIcon className="icon" />
-                        <span>Logs</span>
-                    </li>
-                    <li>
-                        <SettingsApplicationsIcon className="icon" />
-                        <span>Settings</span>
-                    </li>
-                    <p className="title">USER</p>
-                    <li>
-                        <AccountCircleOutlinedIcon className="icon" />
-                        <span>Profile</span>
-                    </li>
+                    <Link to="/support" style={{ textDecoration: "none" }}>
+                        <li>
+                            <InterpreterModeIcon className="icon" />
+                            <span>System Support</span>
+                        </li>
+                    </Link>
                     <li>
                         <ExitToAppIcon className="icon" />
-                        <span>Logout</span>
+                        <span onClick={handleLogout}>Sign Out</span>
                     </li>
                 </ul>
-            </div>
-            <div className="bottom">
-                <div
-                    className="colorOption"
-                    onClick={() => dispatch({ type: "LIGHT" })}
-                ></div>
-                <div
-                    className="colorOption"
-                    onClick={() => dispatch({ type: "DARK" })}
-                ></div>
             </div>
         </div>
     );

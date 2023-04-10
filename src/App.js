@@ -1,10 +1,29 @@
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
-import List from "./pages/list/List";
+import ListUser from "./pages/list/Listuser";
+import ListProduct from "./pages/list/Listproduct";
+import ListNews from "./pages/list/Listnew";
+import ListCategory from "./pages/list/Listcategory";
+import ListAboutUs from "./pages/list/ListaboutUs";
+import ListSupport from "./pages/list/Listsupport";
+
+
+
 import Single from "./pages/single/Single";
-import New from "./pages/new/New";
+
+
+import Newuser from "./pages/new/Newuser";
+import Newproduct from "./pages/new/Newproduct";
+import Newnews from "./pages/new/Newnewspaper";
+import Newcategory from "./pages/new/Newcategory";
+import NewaboutUs from "./pages/new/NewaboutUs";
+import Newsupport from "./pages/new/Newsupport";
+
+
+
+
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { productInputs, userInputs } from "./formSource";
+import { productInputs, userInputs, newInputs, categoryInputs, aboutUsInputs, supportInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
@@ -19,13 +38,15 @@ function App() {
     return currentUser ? children : <Navigate to="/login" />;
   };
 
+
   return (
     <div className={darkMode ? "app dark" : "app"}>
       <BrowserRouter>
         <Routes>
-          <Route path="/">
-            <Route path="login" element={<Login />} />
-            <Route
+
+          <Route>
+            <Route path="/" index element={<Login />} />
+            <Route path="/dashboard"
               index
               element={
                 <RequireAuth>
@@ -33,12 +54,13 @@ function App() {
                 </RequireAuth>
               }
             />
+
             <Route path="users">
               <Route
                 index
                 element={
                   <RequireAuth>
-                    <List />
+                    <ListUser />
                   </RequireAuth>
                 }
               />
@@ -54,17 +76,19 @@ function App() {
                 path="new"
                 element={
                   <RequireAuth>
-                    <New inputs={userInputs} title="Add New User" />
+                    <Newuser inputs={userInputs} title="Add New User" />
                   </RequireAuth>
                 }
               />
+
+
             </Route>
             <Route path="products">
               <Route
                 index
                 element={
                   <RequireAuth>
-                    <List />
+                    <ListProduct />
                   </RequireAuth>
                 }
               />
@@ -80,11 +104,121 @@ function App() {
                 path="new"
                 element={
                   <RequireAuth>
-                    <New inputs={productInputs} title="Add New Product" />
+                    <Newproduct inputs={productInputs} title="Add New Product" />
                   </RequireAuth>
                 }
               />
             </Route>
+
+
+            <Route path="news">
+              <Route
+                index
+                element={
+                  <RequireAuth>
+                    <ListNews />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path=":newsId"
+                element={
+                  <RequireAuth>
+                    <Single />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <RequireAuth>
+                    <Newnews inputs={newInputs} title="Add New Newspaper" />
+                  </RequireAuth>
+                }
+              />
+            </Route>
+
+            <Route path="category">
+              <Route
+                index
+                element={
+                  <RequireAuth>
+                    <ListCategory />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path=":newsId"
+                element={
+                  <RequireAuth>
+                    <Single />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <RequireAuth>
+                    <Newcategory inputs={categoryInputs} title="Add New Category" />
+                  </RequireAuth>
+                }
+              />
+            </Route>
+
+            <Route path="aboutUs">
+              <Route
+                index
+                element={
+                  <RequireAuth>
+                    <ListAboutUs />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path=":newsId"
+                element={
+                  <RequireAuth>
+                    <Single />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <RequireAuth>
+                    <NewaboutUs inputs={aboutUsInputs} title="Add Information About My Store" />
+                  </RequireAuth>
+                }
+              />
+            </Route>
+
+            <Route path="support">
+              <Route
+                index
+                element={
+                  <RequireAuth>
+                    <ListSupport />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path=":newsId"
+                element={
+                  <RequireAuth>
+                    <Single />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <RequireAuth>
+                    <Newsupport inputs={supportInputs} title="Add New Support" />
+                  </RequireAuth>
+                }
+              />
+            </Route>
+
           </Route>
         </Routes>
       </BrowserRouter>

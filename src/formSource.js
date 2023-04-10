@@ -1,76 +1,159 @@
 export const userInputs = [
     {
-        id: 1,
+        id: "fullname",
         label: "Username",
         type: "text",
         placeholder: "john_doe",
     },
     {
-        id: 2,
-        label: "Name and surname",
+        id: "age",
+        label: "Age",
         type: "text",
-        placeholder: "John Doe",
+        placeholder: "USA",
     },
     {
-        id: 3,
+        id: "email",
         label: "Email",
         type: "mail",
         placeholder: "john_doe@gmail.com",
     },
     {
-        id: 4,
+        id: "phoneNumber",
         label: "Phone",
         type: "text",
-        placeholder: "+1 234 567 89",
+        placeholder: "+84 234 567 89",
     },
+
     {
-        id: 5,
-        label: "Password",
-        type: "password",
-    },
-    {
-        id: 6,
+        id: "address",
         label: "Address",
         type: "text",
         placeholder: "Elton St. 216 NewYork",
     },
-    {
-        id: 7,
-        label: "Country",
-        type: "text",
-        placeholder: "USA",
-    },
+
 ];
 
 export const productInputs = [
     {
-        id: 1,
-        label: "Title",
+        id: "product_name",
+        label: "Product Name",
         type: "text",
         placeholder: "Apple Macbook Pro",
     },
+
     {
-        id: 2,
+        id: "product_brand",
+        label: "Product Brand",
+        type: "text",
+        placeholder: "Brand",
+    },
+
+    {
+        id: "product_available",
+        label: "Product Available",
+        type: "text",
+        placeholder: "Available",
+    },
+
+    {
+        id: "product_gender",
+        label: "Product Gender",
+        type: "text",
+        placeholder: "Gender",
+    },
+
+    {
+        id: "product_type",
+        label: "Product Type",
+        type: "text",
+        placeholder: "T-Shirt",
+    },
+
+    {
+        id: "product_sales",
+        label: "Product Sales",
+        type: "text",
+        placeholder: "Brand",
+    },
+
+    {
+        id: "product_price",
+        label: "Product Price",
+        type: "text",
+        placeholder: "99",
+    },
+    {
+        id: "product_des",
         label: "Description",
         type: "text",
         placeholder: "Description",
     },
+];
+
+
+export const newInputs = [
     {
-        id: 3,
-        label: "Category",
+        id: "new_title",
+        label: "News Title",
         type: "text",
-        placeholder: "Computers",
+        //placeholder: "Apple Macbook Pro",
     },
     {
-        id: 4,
-        label: "Price",
+        id: "new_content",
+        label: "News Content",
         type: "text",
-        placeholder: "100",
+        //placeholder: "Brand",
     },
     {
-        id: 5,
-        label: "Stock",
+        id: "new_subtitle",
+        label: "News Subtitle",
         type: "text",
-        placeholder: "in stock",
+        //placeholder: "Description",
     },
+    {
+        id: "new_type",
+        label: "News Type",
+        type: "text",
+        //placeholder: "99",
+    },
+
+];
+
+
+export const categoryInputs = [
+    {
+        id: "category_name",
+        label: "Category Name",
+        type: "text",
+
+    }
+];
+
+
+export const aboutUsInputs = [
+    {
+        id: "au_title",
+        label: "Title Name",
+        type: "text",
+
+    },
+    {
+        id: "au_content",
+        label: "Content",
+        type: "text",
+    }
+];
+
+export const supportInputs = [
+    {
+        id: "sp_title",
+        label: "Title Name",
+        type: "text",
+
+    },
+    {
+        id: "sp_content",
+        label: "Support Content",
+        type: "text",
+    }
 ];
