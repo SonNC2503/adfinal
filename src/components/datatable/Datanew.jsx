@@ -42,7 +42,7 @@ const Datanew = () => {
         {
             field: "action",
             headerName: "Action",
-            width: 150,
+            width: 200,
             renderCell: (params) => {
                 return (
                     <div className="cellAction">
