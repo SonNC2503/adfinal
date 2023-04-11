@@ -49,6 +49,7 @@ const Datasupport = () => {
                         <Link to="/products/test" style={{ textDecoration: "none" }}>
                             <div className="viewButton">View</div>
                         </Link>
+                        <div className="updateButton" >Update</div>
                         <div className="deleteButton" onClick={() => handleDelete(params.row.id)}>Delete</div>
                     </div>
                 );

@@ -20,9 +20,7 @@ export default function EditAboutUs({ CloseEvent }) {
         setContent(e.target.value);
     };
 
-    const editAboutUs = () => {
 
-    }
 
     return (
         <div>

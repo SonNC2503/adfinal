@@ -103,11 +103,12 @@ const Widget = ({ type }) => {
 
             setAmount(lastMonthData.docs.length);
             setDiff(
-                ((lastMonthData.docs.length - prevMonthData.docs.length) / prevMonthData.docs.length) * 100
+                ((lastMonthData.docs.length - prevMonthData.docs.length) / prevMonthData.docs.length) *
+                100
             );
-        }
+        };
         fetchData();
-    }, [data.query]);
+    }, []);
 
     return (
         <div className="widget">

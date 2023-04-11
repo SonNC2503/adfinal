@@ -3,7 +3,7 @@ export const userColumns = [
     {
         field: "fullname",
         headerName: "Username",
-        width: 150,
+        width: 160,
         /*renderCell: (params) => {
             return (
                 <div className="cellWithImg">
@@ -22,7 +22,7 @@ export const userColumns = [
     {
         field: "address",
         headerName: "Address",
-        width: 200,
+        width: 250,
     },
 
     {
@@ -33,7 +33,7 @@ export const userColumns = [
     {
         field: "phoneNumber",
         headerName: "User Phone",
-        width: 200,
+        width: 150,
     }
 
 ];
@@ -75,7 +75,7 @@ export const newColumns = [
     {
         field: "new_title",
         headerName: "Newspaper Name",
-        width: 200,
+        width: 300,
         renderCell: (params) => {
             return (
                 <div className="cellWithImg">
@@ -88,19 +88,19 @@ export const newColumns = [
     {
         field: "new_content",
         headerName: "News Content",
-        width: 450,
+        width: 200,
     },
 
     {
         field: "new_subtitle",
         headerName: "News Suptitle",
-        width: 150,
+        width: 250,
     },
 
     {
         field: "new_type",
         headerName: "News Type",
-        width: 100,
+        width: 150,
     },
 ];
 

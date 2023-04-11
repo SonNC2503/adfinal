@@ -1,9 +1,9 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import { userColumns } from "../../datatablesource";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { collection, getDocs, deleteDoc, doc, onSnapshot } from "firebase/firestore";
+import { collection, deleteDoc, doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
 
 
@@ -47,7 +47,7 @@ const Datauser = () => {
         };
     }, []);
 
-    console.log(data);
+
 
     const handleDelete = async (id) => {
         try {
@@ -63,13 +63,11 @@ const Datauser = () => {
         {
             field: "action",
             headerName: "Action",
-            width: 200,
+            width: 140,
             renderCell: (params) => {
                 return (
                     <div className="cellAction">
-                        <Link to="/users/test" style={{ textDecoration: "none" }}>
-                            <div className="viewButton">View</div>
-                        </Link>
+
                         <div
                             className="deleteButton"
                             onClick={() => handleDelete(params.row.id)}
@@ -85,9 +83,7 @@ const Datauser = () => {
         <div className="datatable">
             <div className="datatableTitle">
                 Users List
-                <Link to="/users/new" className="link">
-                    Add New
-                </Link>
+
             </div>
             <DataGrid
                 className="datagrid"
