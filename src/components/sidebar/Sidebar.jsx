@@ -43,7 +43,7 @@ const Sidebar = () => {
         <div className="sidebar">
             <div className="top">
                 <Link to="/dashboard" style={{ textDecoration: "none" }}>
-                    <span className="logo">SportMSLD</span>
+                    <span className="logo">SportLMSD</span>
                 </Link>
             </div>
             <hr />
