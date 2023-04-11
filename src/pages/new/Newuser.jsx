@@ -5,7 +5,7 @@ import Navbar from "../../components/navbar/Navbar";
 import { useEffect, useState } from "react";
 import { addDoc, collection, doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { auth, db, storage } from "../../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+//import { createUserWithEmailAndPassword } from "firebase/auth";
 //import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
 
