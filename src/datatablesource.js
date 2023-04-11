@@ -75,7 +75,7 @@ export const newColumns = [
     {
         field: "new_title",
         headerName: "Newspaper Name",
-        width: 220,
+        width: 200,
         renderCell: (params) => {
             return (
                 <div className="cellWithImg">
@@ -94,7 +94,7 @@ export const newColumns = [
     {
         field: "new_subtitle",
         headerName: "News Suptitle",
-        width: 250,
+        width: 220,
     },
 
     {
